@@ -1,0 +1,8 @@
+<launch>
+  <param name="hokuyo_node/port" type="str" value="/dev/ttyACM0" />
+
+  <node pkg="hokuyo_node" type="hokuyo_node" name="urg" />
+  <node pkg="yamabros" type="spur_server" name="spur" />
+  <node pkg="tf" type="static_transform_publisher" name="laser_frame" args="0.0 0.0 0.0 0.0 0.0 0.0 odom laser 100" />
+  <node pkg="rviz" type="rviz" name="view" args="--no-stereo -d $(find yamabros)/config/yamabico.rviz" required="true"/>
+</launch>

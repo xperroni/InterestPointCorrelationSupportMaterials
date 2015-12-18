@@ -1,0 +1,6 @@
+# Goal: none
+---
+# Result: captured image
+sensor_msgs/Image image
+---
+# Feedback: none

@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find yamabros)/launch/move_base.launch" />
+  <node pkg="yamabros" type="spur_server" name="spur_server">
+    <param name="server_type" value="ros" />
+  </node>
+</launch>

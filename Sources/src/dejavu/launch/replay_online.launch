@@ -1,0 +1,28 @@
+<launch>
+  <!-- Teach sessions -->
+  <arg name="teach_straight" value="/home/helio/Roboken/Data/Straight/2014-10-09-yaw-01-00/video.mpg" />
+  <arg name="path" default="$(find dejavu)/../../video.mpg" />
+
+  <!-- Robot interface -->
+  <param name="~framerate" value="20" />
+  <node pkg="yamabros" type="spur_server"  name="spur" />
+  <node pkg="usb_cam"  type="usb_cam_node" name="camera" />
+  <remap from="image" to="/camera/image_raw"/>
+
+  <!-- Dejavu network -->
+  <param name="~path" value="$(arg teach_straight)" />
+  <node pkg="dejavu" type="difference_camera"  name="difference_camera" />
+  <node pkg="dejavu" type="difference_matcher" name="difference_matcher" required="true" />
+  <node pkg="dejavu" type="shift_estimator"    name="shift_estimator"   />
+  <node pkg="dejavu" type="steering"           name="steering"          />
+
+  <!-- Sensor recording -->
+  <node pkg="rosbag" type="record" name="record_bag" args="/camera/image_raw /cmd_vel /odom /tf /forward" />
+
+  <node pkg="cv_video" type="record" name="record_video">
+    <param name="path" value="$(arg path)" />
+  </node>
+
+  <!-- System GUI -->
+  <node pkg="rviz" type="rviz" name="view" args="--no-stereo -d $(find dejavu)/config/online.rviz" respawn="true" />
+</launch>

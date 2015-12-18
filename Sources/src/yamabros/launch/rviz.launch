@@ -1,0 +1,3 @@
+<launch>
+  <node name="view" pkg="rviz" type="rviz" args="--no-stereo -d $(find yamabros)/config/yamabico.rviz" required="true"/>
+</launch>

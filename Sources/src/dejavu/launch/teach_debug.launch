@@ -1,0 +1,3 @@
+<launch>
+  <node launch-prefix="gdbserver localhost:2000" name="teach" pkg="dejavu" type="teach" />
+</launch>

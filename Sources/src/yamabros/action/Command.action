@@ -1,0 +1,9 @@
+# The goal is the command's ID and arguments
+int32 command
+float64[] destination
+---
+# The result is the robot's pose after reaching its destination
+Pose pose
+---
+# The feedback is the robot's current pose
+Pose pose

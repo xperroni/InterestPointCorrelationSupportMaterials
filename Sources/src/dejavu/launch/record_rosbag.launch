@@ -1,0 +1,13 @@
+<launch>
+  <arg name="bag" />
+  <arg name="path" default="$(find dejavu)/../../video.mpg" />
+
+  <node pkg="rosbag" type="play" name="play" args="$(arg bag)" />
+
+  <remap from="image" to="/camera/image_raw"/>
+
+  <node pkg="cv_video" type="record" name="record">
+    <param name="fps" value="20" />
+    <param name="path" value="$(arg path)" />
+  </node>
+</launch>

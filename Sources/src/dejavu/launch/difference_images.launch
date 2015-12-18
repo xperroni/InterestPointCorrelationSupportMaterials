@@ -1,0 +1,9 @@
+<launch>
+  <node name="camera" pkg="usb_cam" type="usb_cam_node" />
+
+  <remap from="image" to="/camera/image_raw"/>
+
+  <node pkg="dejavu" type="difference_camera" name="difference_camera" />
+  <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui" required="true"
+        args="--perspective-file $(find dejavu)/config/Saliences.perspective"/>
+</launch>

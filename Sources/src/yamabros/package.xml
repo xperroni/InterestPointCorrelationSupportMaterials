@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <!-- Project information -->
+  <name>yamabros</name>
+  <license>BSD</license>
+  <version>2015.1.0</version>
+  <author >Helio Perroni Filho</author>
+  <description>ROS API's for Yamabico robots</description>
+  <maintainer email="mail@xperroni.me">Helio Perroni Filho</maintainer>
+
+  <!-- Compile-time dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>move_base_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>tf</build_depend>
+
+  <!-- Runtime dependencies -->
+  <run_depend>actionlib</run_depend>
+  <run_depend>hokuyo_node</run_depend>
+  <run_depend>move_base_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>tf</run_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

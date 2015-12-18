@@ -1,0 +1,26 @@
+<launch>
+  <!-- "Straight" session -->
+  <arg name="teach"  value="/home/helio/Roboken/Data/Straight/2014-10-09-yaw-01-00/video.mpg" />
+  <arg name="replay" value="/home/helio/Roboken/Data/Straight/2014-10-09-yaw-02-00/video.mpg" />
+
+  <include file="$(find yamabros)/launch/spur_server_ros.launch" />
+
+  <remap from="playing" to="forward" />
+
+  <node pkg="cv_video" type="replay" name="replay">
+    <param name="path" value="$(arg replay)" />
+    <param name="fps" value="20" />
+  </node>
+
+  <!-- Dejavu network -->
+  <group>
+    <param name="~path" value="$(arg teach)" />
+    <node pkg="dejavu" type="difference_stream"  name="difference_stream"  />
+    <node pkg="dejavu" type="difference_matcher" name="difference_matcher" />
+    <node pkg="dejavu" type="shift_estimator"    name="shift_estimator"    />
+    <node pkg="dejavu" type="steering"           name="steering"           />
+  </group>
+
+  <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui" required="true"
+        args="--perspective-file $(find dejavu)/config/replay.perspective" />
+</launch>

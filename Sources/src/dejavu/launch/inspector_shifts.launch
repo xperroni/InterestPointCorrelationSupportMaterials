@@ -1,0 +1,18 @@
+<launch>
+  <!-- "Outdoors" session -->
+  <arg name="teach_outdoors"  value="/home/helio/Roboken/Data/Straight/2014-10-21-yaw-02-00/video.mpg" />
+  <arg name="replay_outdoors" value="/home/helio/Roboken/Data/Straight/2014-10-21-yaw-02--2/video.mpg" />
+
+  <!-- "Straight" session -->
+  <arg name="teach_straight"  value="/home/helio/Roboken/Data/Straight/2014-10-09-yaw-01-00/video.mpg" />
+  <arg name="replay_straight" value="/home/helio/Roboken/Data/Straight/2014-10-09-yaw-02-00/video.mpg" />
+
+  <!-- "Turn right" session -->
+  <arg name="teach_turn_right"  value="/home/helio/Roboken/Data/Straight/2014-12-16-yaw-01-00/video.mpg" />
+  <arg name="replay_turn_right" value="/home/helio/Roboken/Data/Straight/2014-12-16-yaw-03-00/video.mpg" />
+
+  <node pkg="dejavu" type="inspector_shifts" name="inspector_shifts" required="true">
+    <param name="path_teach"  value="$(arg teach_straight)" />
+    <param name="path_replay" value="$(arg replay_straight)" />
+  </node>
+</launch>

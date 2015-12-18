@@ -1,0 +1,42 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name='yamasemi_wall'>
+    <pose>0 0 0.2 0 0 0</pose>
+    <static>0</static>
+    <link name='link'>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.02</iyy>
+          <iyz>0</iyz>
+          <izz>0.03</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>0.05 0.45 0.4</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.05 0.45 0.4</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <self_collide>1</self_collide>
+      <gravity>1</gravity>
+    </link>
+  </model>
+</sdf>

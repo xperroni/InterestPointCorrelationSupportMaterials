@@ -1,0 +1,77 @@
+*******************************************************************************
+* Setup
+*******************************************************************************
+
+Open the System Monitor to watch for and kill stalled Gazebo processes.
+
+Turn on the yamabico robot and the Edison.
+
+Start a remote session to the Edison.
+
+Check that it's possible to start ypspur-coordinator on the Edison.
+
+Start screen and create three sessions (don't run commands marked * yet, just paste them to the terminal):
+
+Session 1:
+
+cd /media/sdcard/Projects/Lividum/
+source devel/setup.bash
+export ROS_MASTER_URI=http://ubilinux:11311
+roscore
+
+Session 2:
+
+cd /media/sdcard/Projects/Lividum/
+source devel/setup.bash
+export ROS_MASTER_URI=http://ubilinux:11311
+roslaunch yamabros yamabico.launch
+
+Session 3:
+
+cd /media/sdcard/Projects/Lividum/
+source devel/setup.bash
+rosrun yumebros demo01
+
+Start screen locally on another terminal and create four sessions with these settings:
+
+cd Roboken/Projects/Active/Lividum/
+source devel/setup.bash
+
+*******************************************************************************
+* Simulated control
+*******************************************************************************
+
+On the first local session start gazebo:
+
+roslaunch yumebros demo01_gazebo.launch
+
+Remember to reposition the camera to get a better view of the action.
+
+On the second session start the control server:
+
+roslaunch yumebros demo01_control.launch
+
+Finally on the third window start the control client:
+
+rosrun yumebros demo01
+
+*******************************************************************************
+* rviz on simulated environment
+*******************************************************************************
+
+Start Gazebo and the control server as before, but now on the fourth local session start rviz:
+
+roslaunch yamabros rviz.launch
+
+Then start the control client. Notice how it's possible to get laser and odometry readings from the virtual environment.
+
+*******************************************************************************
+* Yamabico remote control
+*******************************************************************************
+
+Start the yamabico control server on the Edison (second remote session), then on a local session start rviz connected to the remote ROS server:
+
+export ROS_MASTER_URI=http://ubilinux:11311
+roslaunch yamabros rviz.launch
+
+Show how it's possible to get readings from a remote source. On the third remote session start the control client, show how readings change in real time.

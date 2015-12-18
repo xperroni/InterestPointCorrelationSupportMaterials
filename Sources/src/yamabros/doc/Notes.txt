@@ -1,0 +1,4 @@
+Sample Commands
+---------------
+
+ypspur-coordinator -p /usr/local/share/robot-params/M1.param -d /dev/ttyACM1

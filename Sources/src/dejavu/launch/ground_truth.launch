@@ -1,0 +1,26 @@
+<launch>
+  <!-- "Outdoors" session -->
+  <arg name="teach_outdoors"  value="/home/helio/Roboken/Data/Straight/2014-10-21-yaw-02-00/video.mpg" />
+  <arg name="replay_outdoors" value="/home/helio/Roboken/Data/Straight/2014-10-21-yaw-02--2/video.mpg" />
+  <arg name="outdoors_030" value="/home/helio/Roboken/Data/Straight/2014-11-14-yaw-01-00/video.mpg" />
+  <arg name="outdoors_045" value="/home/helio/Roboken/Data/Straight/2014-11-14-yaw-02-00/video.mpg" />
+  <arg name="outdoors_060" value="/home/helio/Roboken/Data/Straight/2014-11-14-yaw-03-00/video.mpg" />
+
+  <!-- "Straight" session -->
+  <arg name="teach_straight"  value="/home/helio/Roboken/Data/Straight/2014-10-09-yaw-01-00/video.mpg" />
+  <arg name="replay_straight" value="/home/helio/Roboken/Data/Straight/2014-10-09-yaw-02-00/video.mpg" />
+
+  <!-- "Turn left" session -->
+  <arg name="teach_turn_left"  value="/home/helio/Roboken/Data/Straight/2014-12-16-yaw-02-00/video.mpg" />
+  <arg name="replay_turn_left" value="/home/helio/Roboken/Data/Straight/2014-12-16-yaw-04-00/video.mpg" />
+
+  <!-- "Turn right" session -->
+  <arg name="teach_turn_right"  value="/home/helio/Roboken/Data/Straight/2014-12-16-yaw-01-00/video.mpg" />
+  <arg name="replay_turn_right" value="/home/helio/Roboken/Data/Straight/2014-12-16-yaw-03-00/video.mpg" />
+
+  <node pkg="dejavu" type="ground_truth" name="ground_truth" required="true">
+    <param name="path_ground_truth" value="$(find dejavu)/../../ground_truth.txt" />
+    <param name="path_teach"  value="$(arg outdoors_030)" />
+    <param name="path_replay" value="$(arg outdoors_060)" />
+  </node>
+</launch>

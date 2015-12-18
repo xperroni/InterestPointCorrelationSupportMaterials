@@ -1,0 +1,16 @@
+<launch>
+  <node name="camera" pkg="usb_cam" type="usb_cam_node" />
+
+  <remap from="image" to="/camera/image_raw"/>
+
+  <!--
+  <node name="camcorder" pkg="cv_video" type="service">
+    <param name="path" value="$(find cv_video)/../../video.mpg" />
+  </node>
+  -->
+
+  <node name="saliences" pkg="dejavu" type="saliences" />
+
+  <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui" required="true"
+        args="--perspective-file $(find dejavu)/config/saliences.perspective"/>
+</launch>

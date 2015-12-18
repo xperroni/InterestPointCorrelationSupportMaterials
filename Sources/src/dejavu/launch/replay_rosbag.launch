@@ -1,0 +1,16 @@
+<launch>
+  <arg name="bag" />
+  <arg name="teach" default="/home/helio/Roboken/Data/Straight/2014-10-09-yaw-01-00/video.mpg" />
+
+  <node pkg="rosbag" type="play" name="play" args="$(arg bag)" />
+
+  <group>
+    <remap from="playing" to="forward" />
+    <remap from="image" to="/teach/image" />
+    <param name="~path" value="$(arg teach)" />
+    <param name="~fps" value="20" />
+    <node pkg="cv_video" type="replay" name="teach" />
+  </group>
+
+  <node pkg="rviz" type="rviz" name="view" args="--no-stereo -d $(find dejavu)/config/replay.rviz" respawn="true" />
+</launch>

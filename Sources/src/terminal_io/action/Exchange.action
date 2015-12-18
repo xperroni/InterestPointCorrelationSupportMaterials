@@ -1,0 +1,9 @@
+# Goal: input mode (either KEY or LINE for input, or PRINT for output) and optional text data
+int32 mode
+string text
+---
+# Result: terminal input (for LINE mode, empty for KEY and PRINT)
+string line
+---
+# Feedback: terminal input (for KEY mode)
+string key

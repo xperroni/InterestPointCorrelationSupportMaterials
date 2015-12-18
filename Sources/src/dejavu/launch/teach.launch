@@ -1,0 +1,15 @@
+<launch>
+  <node name="camera" pkg="usb_cam" type="usb_cam_node" />
+
+  <remap from="image" to="/camera/image_raw"/>
+
+  <node name="camcorder" pkg="cv_video" type="camcorder" />
+
+  <node name="spur_server" pkg="yamabros" type="spur_server" />
+
+  <node launch-prefix="konsole --nofork --new-tab -e" name="terminal_server" pkg="terminal_io" type="terminal_server" />
+
+  <node name="teach" pkg="dejavu" type="teach" required="true">
+    <param name="path" value="$(find dejavu)/../../video.mpg" />
+  </node>
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="dejavu" type="hrr" name="hrr" />
+  <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui" required="true"
+        args="--perspective-file $(find dejavu)/config/hrr.perspective"/>
+</launch>

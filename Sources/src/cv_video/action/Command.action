@@ -1,0 +1,9 @@
+# Goal: access mode (either OPEN or REC) and optional record request
+int32 mode
+Record request
+---
+# Result: operation status (set to 0 by default)
+int32 status
+---
+# Feedback: last captured frame
+sensor_msgs/Image frame

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>dejavu</name>
+  <license>GPLv3</license>
+  <version>2015.1.0</version>
+  <author >Helio Perroni Filho</author>
+  <description>Demo application for clarus and cight.</description>
+  <maintainer email="mail@xperroni.me">Helio Perroni Filho</maintainer>
+
+  <!-- Compile-time dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>cight</build_depend>
+  <build_depend>clarus</build_depend>
+  <build_depend>cv_video</build_depend>
+  <build_depend>terminal_io</build_depend>
+  <build_depend>yamabros</build_depend>
+
+  <!-- Runtime dependencies -->
+  <run_depend>cight</run_depend>
+  <run_depend>clarus</run_depend>
+  <run_depend>cv_video</run_depend>
+  <run_depend>terminal_io</run_depend>
+  <run_depend>yamabros</run_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+      <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>
